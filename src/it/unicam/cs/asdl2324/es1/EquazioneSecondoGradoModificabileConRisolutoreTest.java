@@ -50,13 +50,14 @@ class EquazioneSecondoGradoModificabileConRisolutoreTest {
 
     @Test
     final void testSetA() {
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e1 = new EquazioneSecondoGradoModificabileConRisolutore(
                 10, 1, 1);
 
-        e1.solve();
+        e1.solve(); // risoluzione
 
         assertTrue(e1.isSolved());
-
+        // verifico se setto valore 0 
         assertThrows(IllegalArgumentException.class,
                 () -> e1.setA(0));
 
@@ -70,14 +71,16 @@ class EquazioneSecondoGradoModificabileConRisolutoreTest {
     @Test
     final void testGetB() {
         double x = 10;
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e1 = new EquazioneSecondoGradoModificabileConRisolutore(
                 2, x, 1);
 
-        assertTrue(x == e1.getB());
+        assertTrue(x == e1.getB());  // verifico valore 
     }
 
     @Test
     final void testSetB() {
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e1 = new EquazioneSecondoGradoModificabileConRisolutore(
                 10, 1, 1);
 
@@ -87,7 +90,7 @@ class EquazioneSecondoGradoModificabileConRisolutoreTest {
 
         e1.setB(20);
         // controllo che il valore sia stato settato
-        assertTrue(20 == e1.getB());
+        assertTrue(20 == e1.getB()); // verifico valore 
         // Controllo che lo stato sia stato resettato
         assertFalse(e1.isSolved());
     }
@@ -95,14 +98,16 @@ class EquazioneSecondoGradoModificabileConRisolutoreTest {
     @Test
     final void testGetC() {
         double x = 10;
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e1 = new EquazioneSecondoGradoModificabileConRisolutore(
                 2, 1, x);
 
-        assertTrue(x == e1.getC());
+        assertTrue(x == e1.getC());  // verifico valore 
     }
 
     @Test
     final void testSetC() {
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e1 = new EquazioneSecondoGradoModificabileConRisolutore(
                 10, 1, 1);
 
@@ -112,13 +117,14 @@ class EquazioneSecondoGradoModificabileConRisolutoreTest {
 
         e1.setC(20);
         // controllo che il valore sia stato settato
-        assertTrue(20 == e1.getC());
+        assertTrue(20 == e1.getC()); // verifico valore 
         // Controllo che lo stato sia stato resettato
         assertFalse(e1.isSolved());
     }
 
     @Test
     final void testIsSolved() {
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e1 = new EquazioneSecondoGradoModificabileConRisolutore(
                 10, 1, 1);
 
@@ -131,6 +137,7 @@ class EquazioneSecondoGradoModificabileConRisolutoreTest {
 
     @Test
     final void testSolve() {
+        // Test allocazione oggetto generica
         EquazioneSecondoGradoModificabileConRisolutore e3 = new EquazioneSecondoGradoModificabileConRisolutore(
                 1, 1, 3);
         // controllo semplicemente che la chiamata a solve() non generi errori

@@ -33,7 +33,10 @@ public class EquazioniModificabiliTextualFrontEnd {
                         "Inserisci il valore del parametro a e premi INVIO");
                 try {
                     // leggo il parametro a
+
+                    /* EDIT */
                     retry = false; // La variabile booleana retry DEVE essere resettata per poter catchare una nuova eventuale exception
+
                     String aInput = input.readLine();
                     a = Double.parseDouble(aInput);
                     // controllo se il valore inserito è zero
@@ -45,6 +48,7 @@ public class EquazioniModificabiliTextualFrontEnd {
                 } catch (IOException e) {
                     System.err.println("Errore di Input/Output!");
                     System.exit(1);
+                    retry = true; // aggiungo retry
                 } catch (NumberFormatException e) {
                     System.out.println(
                             "Errore: Il valore del parametro a deve essere un numero! Ritenta...");
@@ -56,12 +60,16 @@ public class EquazioniModificabiliTextualFrontEnd {
                 System.out.println(
                         "Inserisci il valore del parametro b e premi INVIO");
                 try {
+
+                    /* EDIT */
                     retry = false; // La variabile booleana retry DEVE essere resettata per poter catchare una nuova eventuale exception
+
                     String aInput = input.readLine();
                     b = Double.parseDouble(aInput);
                 } catch (IOException e) {
                     System.err.println("Errore di Input/Output!");
                     System.exit(1);
+                    retry = true; // aggiungo retry
                 } catch (NumberFormatException e) {
                     System.out.println(
                             "Errore: Il valore del parametro b deve essere un numero! Ritenta...");
@@ -73,12 +81,16 @@ public class EquazioniModificabiliTextualFrontEnd {
                 System.out.println(
                         "Inserisci il valore del parametro c e premi INVIO");
                 try {
+
+                    /* EDIT */
                     retry = false; // La variabile booleana retry DEVE essere resettata per poter catchare una nuova eventuale exception
+
                     String aInput = input.readLine();
                     c = Double.parseDouble(aInput);
                 } catch (IOException e) {
                     System.err.println("Errore di Input/Output!");
                     System.exit(1);
+                    retry = true; // aggiungo retry
                 } catch (NumberFormatException e) {
                     System.out.println(
                             "Errore: Il valore del parametro c deve essere un numero! Ritenta...");
