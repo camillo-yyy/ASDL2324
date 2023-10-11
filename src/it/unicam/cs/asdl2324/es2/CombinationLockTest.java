@@ -34,6 +34,7 @@ class CombinationLockTest {
         c.setPosition('A');
         c.open();
         assertFalse(c.isOpen());
+        
     }
 
     @Test

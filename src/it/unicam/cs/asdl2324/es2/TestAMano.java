@@ -58,7 +58,6 @@ public class TestAMano {
         c.setPosition(input.trim().charAt(0));
         c.setPosition(input.trim().charAt(1));
         c.setPosition(input.trim().charAt(2));
-        System.out.println(c.getLastDigit());
         c.open();
         if (c.isOpen())
             System.out.println("La cassaforte si è aperta correttamente!");

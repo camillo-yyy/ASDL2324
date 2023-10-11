@@ -58,7 +58,7 @@ public class CombinationLock {
         if(this.lastDigits.length() < 3) this.lastDigits += aPosition;
         else {
 
-            this.lastDigits = "";
+            //this.lastDigits = "";
             this.lastDigits = this.lastDigits.substring(1) + aPosition;
 
         }
