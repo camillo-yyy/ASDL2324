@@ -6,17 +6,17 @@ package it.unicam.cs.asdl2324.es2;
  * serratura si apre solo se le ultime tre lettere impostate sono uguali alla
  * combinazione segreta.
  * 
- * @author Luca Tesei
+ * @author Luca Tesei | implementazione: Camilletti Samuele
  */
 public class CombinationLock {
 
     // TODO inserire le variabili istanza che servono
     // Attributi
-    private String password;
-    private String lastDigits;
+    private String password;  // Stringa per memorizzazione password           
+    private String lastDigits; // Stringa per memorizzazione ultimi 3 tentativi
     private boolean isClosed; // Indica lo stato della cassaforte: true = chiusa, false = aperta;
 
-    /**
+    /** 
      * Costruisce una cassaforte <b>aperta</b> con una data combinazione
      * 
      * @param aCombination
@@ -33,6 +33,7 @@ public class CombinationLock {
         // Controllo se la stringa contiene solo carattere maiuscoli utilizzando una espressione regolare
         if(!aCombination.matches("[\\p{Lu}]+") || aCombination.length() != 3) throw new IllegalArgumentException("La combinazione può essere composta solo caratteri MAIUSCOLI");
         
+        // Imposto i 3 attributi
         this.password = aCombination;
         this.lastDigits = "";
         this.isClosed = false;
@@ -58,8 +59,7 @@ public class CombinationLock {
         if(this.lastDigits.length() < 3) this.lastDigits += aPosition;
         else {
 
-            //this.lastDigits = "";
-            this.lastDigits = this.lastDigits.substring(1) + aPosition;
+            this.lastDigits = this.lastDigits.substring(1) + aPosition;   // prendo  le ultime due char e appendo l'ultimo  char aggiunto
 
         }
 
@@ -73,9 +73,9 @@ public class CombinationLock {
      */
     public void open() {
         
-        if(this.isClosed == false) return;
+        if(this.isClosed == false) return;   // se aperta
 
-        if(this.password.equals(this.lastDigits)) this.isClosed = false;
+        if(this.password.equals(this.lastDigits)) this.isClosed = false; // apro
         else this.lastDigits = "";
 
     }
@@ -101,7 +101,7 @@ public class CombinationLock {
      */
     public void lock() {
 
-        if(this.isClosed == true) return;
+        if(this.isClosed == true) return;  // se già chiusa
 
         this.isClosed = true;
         this.lastDigits = "";
@@ -123,6 +123,7 @@ public class CombinationLock {
      */
     public void lockAndChangeCombination(String aCombination) {
 
+        // se già chiusa
         if(this.isClosed == true){
 
             this.lastDigits = "";
@@ -138,6 +139,11 @@ public class CombinationLock {
         this.lastDigits = "";
     }
 
+    /* Metodo ottenimento ultime 3 last digits
+     * 
+     * @return lastDigits
+     * 
+     */
     public String getLastDigit() {
 
         return this.lastDigits;
