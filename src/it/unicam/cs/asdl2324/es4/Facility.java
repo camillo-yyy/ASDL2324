@@ -52,8 +52,18 @@ public abstract class Facility {
      */
     @Override
     public int hashCode() {
-        // TODO implementare
-        return -1;
+        final int prime = 31;
+        int result = 1;
+        long temp;
+
+        // si usa il valore intero corrispondente alla rappresentazione del
+        // double bit a bit (64 bit, cio� un long)
+        temp = Double.doubleToLongBits(this.codice.hashCode());
+        // si fa il bitwise XOR tra i 64 bit originali e il loro shift a destra
+        // di 32 bit, poi si fa il cast a int
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+
+        return result;
     }
 
     /*
@@ -66,7 +76,7 @@ public abstract class Facility {
 
         Facility a = (Facility) obj;
 
-        if(this.Facility.codice.equals(a.getCodice())) return true;
+        if(this.codice.equals(a.getCodice())) return true;
         else return false;
     }
 

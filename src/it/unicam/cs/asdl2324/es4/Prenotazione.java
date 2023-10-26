@@ -33,7 +33,8 @@ public class Prenotazione implements Comparable<Prenotazione> {
      */
     public Prenotazione(Aula aula, TimeSlot timeSlot, String docente,
             String motivo) {
-        // TODO implementare
+        if(aula == null || timeSlot == null || docente == null || motivo == null) throw new NullPointerException("Uno degli oggetti passati non esiste");
+
         this.aula = aula;
         this.timeSlot = timeSlot;
         this.docente = docente;
@@ -72,6 +73,8 @@ public class Prenotazione implements Comparable<Prenotazione> {
      * @param docente the docente to set
      */
     public void setDocente(String docente) {
+        if(docente == null) throw new NullPointerException("oggetto passato non esiste");
+
         this.docente = docente;
     }
 
@@ -79,13 +82,31 @@ public class Prenotazione implements Comparable<Prenotazione> {
      * @param motivo the motivo to set
      */
     public void setMotivo(String motivo) {
+        if(motivo == null) throw new NullPointerException("oggetto passato non esiste");
+
         this.motivo = motivo;
     }
-
+    
+    /*
+     * L'hashcode di una prenotazione si calcola a partire dai due campi usati
+     * per equals.
+     */
     @Override
     public int hashCode() {
-        // TODO implementare
-        return -1;
+        final int prime = 31;
+        int result = 1;
+        long temp;
+
+        // si usa il valore intero corrispondente alla rappresentazione del
+        // double bit a bit (64 bit, cio� un long)
+        temp = Double.doubleToLongBits(this.aula.hashCode());
+        // si fa il bitwise XOR tra i 64 bit originali e il loro shift a destra
+        // di 32 bit, poi si fa il cast a int
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(this.timeSlot.hashCode());
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+
+        return result;
     }
 
     /*
@@ -94,8 +115,14 @@ public class Prenotazione implements Comparable<Prenotazione> {
      */
     @Override
     public boolean equals(Object obj) {
-        // TODO implementare
-        return false;
+        if(obj == this) return true;
+        if(obj == null) return false;
+        if(!(obj instanceof Prenotazione)) return false;
+
+        Prenotazione a = (Prenotazione) obj;
+
+        if(this.aula.equals(a.getAula()) && this.timeSlot.equals(a.timeSlot)) return true;
+        else return false;
     }
 
     /*
@@ -105,8 +132,9 @@ public class Prenotazione implements Comparable<Prenotazione> {
      */
     @Override
     public int compareTo(Prenotazione o) {
-        // TODO implementare
-        return -1;
+        if(this.timeSlot.compareTo(o.getTimeSlot()) < 0) return -1;
+        else if(this.timeSlot.compareTo(o.getTimeSlot()) == 0) return this.aula.compareTo(o.getAula());
+        else return 1;
     }
 
     @Override

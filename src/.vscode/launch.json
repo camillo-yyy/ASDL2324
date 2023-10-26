@@ -1,0 +1,36 @@
+{
+ // Use IntelliSense to learn about possible attributes.
+ // Hover to view descriptions of existing attributes.
+ // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+ "version": "0.2.0",
+ "configurations": [
+  
+  {
+   "type": "java",
+   "name": "Current File",
+   "request": "launch",
+   "mainClass": "${file}"
+  },
+  {
+   "type": "java",
+   "name": "EquazioniModificabiliTextualFrontEnd",
+   "request": "launch",
+   "mainClass": "it.unicam.cs.asdl2324.es1.EquazioniModificabiliTextualFrontEnd",
+   "projectName": "src_77f0ec6f"
+  },
+  {
+   "type": "java",
+   "name": "CombinationLockGUI",
+   "request": "launch",
+   "mainClass": "it.unicam.cs.asdl2324.es2.CombinationLockGUI",
+   "projectName": "src_77f0ec6f"
+  },
+  {
+   "type": "java",
+   "name": "TestAMano",
+   "request": "launch",
+   "mainClass": "it.unicam.cs.asdl2324.es2.TestAMano",
+   "projectName": "src_77f0ec6f"
+  }
+ ]
+}

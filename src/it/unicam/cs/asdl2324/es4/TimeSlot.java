@@ -41,7 +41,10 @@ public class TimeSlot implements Comparable<TimeSlot> {
      *                                      stop
      */
     public TimeSlot(GregorianCalendar start, GregorianCalendar stop) {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
+        if(start == null || stop == null) throw new NullPointerException("Uno degli oggetti passati non esiste");
+
+        if(start.compareTo(stop) == 0 || start.compareTo(stop) > 0) throw new IllegalArgumentException("Ora Start deve essere minore di ora stop");
+
         this.start = start;
         this.stop = stop;
     }
@@ -67,8 +70,14 @@ public class TimeSlot implements Comparable<TimeSlot> {
      */
     @Override
     public boolean equals(Object obj) {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
-        return false;
+        if(obj == this) return true;
+        if(obj == null) return false;
+        if(!(obj instanceof TimeSlot)) return false;
+
+        TimeSlot a = (TimeSlot) obj;
+
+        if(this.start.equals(a.getStart()) && this.stop.equals(a.getStop())) return true;
+        else return false;
     }
 
     /*
@@ -78,8 +87,20 @@ public class TimeSlot implements Comparable<TimeSlot> {
      */
     @Override
     public int hashCode() {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
-        return -1;
+        final int prime = 31;
+        int result = 1;
+        long temp;
+
+        // si usa il valore intero corrispondente alla rappresentazione del
+        // double bit a bit (64 bit, cio� un long)
+        temp = Double.doubleToLongBits(this.start.hashCode());
+        // si fa il bitwise XOR tra i 64 bit originali e il loro shift a destra
+        // di 32 bit, poi si fa il cast a int
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(this.stop.hashCode());
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+
+        return result;
     }
 
     /*
@@ -89,8 +110,17 @@ public class TimeSlot implements Comparable<TimeSlot> {
      */
     @Override
     public int compareTo(TimeSlot o) {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
-        return -1;
+        GregorianCalendar a = o.getStart();
+        GregorianCalendar s = o.getStop();
+
+        if(this.start.compareTo(a) < 0) return -1;
+        else if(this.start.compareTo(a) == 0) {
+
+            if(this.stop.compareTo(s) < 0) return -1;
+            else if(this.stop.compareTo(s) == 0) return 0;
+            else return 1;
+        }
+        else return 1;
     }
 
     /**
@@ -116,8 +146,37 @@ public class TimeSlot implements Comparable<TimeSlot> {
      *                                      superano Integer.MAX_VALUE
      */
     public int getMinutesOfOverlappingWith(TimeSlot o) {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
-        return -1;
+    	if(o == null) {
+    		throw new NullPointerException();
+    	}
+
+        // Avvio/Stop oggetto chiamante
+    	long a1 = this.start.getTimeInMillis();
+    	long s1 = this.stop.getTimeInMillis();
+        // Avvio/Stop oggetto passato
+    	long a2 = o.getStart().getTimeInMillis();
+    	long s2 = o.getStop().getTimeInMillis();
+    	
+    	int time = -1;
+    	
+    	// controlla se i due timeslot iniziano in seguito all'altro
+        if(s1 == a2 || s2 == a1) return -1;
+        else {
+        	// Se il secondo timeslot è contenuto nel primo
+        	if (a1 <= a2 && s1 >= s2) time = (int) ((s2 - a2)/1000/60);
+
+        	// Se il primo timeslot è contenuto nel secondo
+        	else if (a1 >= a2 && s1 <= s2) time = (int) ((s1 - a1)/1000/60);
+
+        	// Se il primo timeslot inizia e finisce dopo il secondo
+        	else if (a1 >= a2 && a1 <= s2) time = (int) ((s2 - a1)/1000/60);
+
+        	// Se il primo timeslot inizia e finisce prima del secondo
+        	else if (a1 <= a2 && s1 >= a2) time = (int) ((s1 - a2)/1000/60);
+        }
+        
+        if(time > Integer.MAX_VALUE) throw new IllegalArgumentException();
+        else return time;
     }
 
     /**
@@ -133,8 +192,12 @@ public class TimeSlot implements Comparable<TimeSlot> {
      *                                  se il time slot passato è nullo
      */
     public boolean overlapsWith(TimeSlot o) {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
-        return false;
+    	if(o == null) {
+    		throw new NullPointerException();
+    	}
+
+        if(this.getMinutesOfOverlappingWith(o) > MINUTES_OF_TOLERANCE_FOR_OVERLAPPING) return true;
+        else return false;
     }
 
     /*
@@ -148,9 +211,18 @@ public class TimeSlot implements Comparable<TimeSlot> {
      */
     @Override
     public String toString() {
-        // TODO implementare - riutilizzare il codice della ES 3 o migliorarlo
-        return null;
+        return "[" + this.start.get(GregorianCalendar.DAY_OF_MONTH)
+                     + "/" + (this.start.get(GregorianCalendar.MONTH)+1)
+                     + "/" + this.start.get(GregorianCalendar.YEAR) + " "
+                     + this.start.get(GregorianCalendar.HOUR_OF_DAY) + "."
+                     + this.start.get(GregorianCalendar.MINUTE) + " - "
+                    + this.stop.get(GregorianCalendar.DAY_OF_MONTH)
+                     + "/" + (this.stop.get(GregorianCalendar.MONTH)+1)
+                     + "/" + this.stop.get(GregorianCalendar.YEAR) + " "
+                    + this.stop.get(GregorianCalendar.HOUR_OF_DAY) + "."
+                    + this.stop.get(GregorianCalendar.MINUTE) + "]";
     }
+
 
     // TODO aggiungere eventuali metodi privati a scopo di implementazione -
     // riutilizzare il codice della ES 3 o migliorarlo
