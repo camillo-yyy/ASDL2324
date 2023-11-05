@@ -1,9 +1,9 @@
-package it.unicam.cs.asdl2324.es4;
+package it.unicam.cs.asdl2324.es5;
 
 /**
  * Una prenotazione riguarda una certa aula per un certo time slot.
  * 
- * @author Template: Luca Tesei, Implementation: Collective
+ * @author Luca Tesei
  *
  */
 public class Prenotazione implements Comparable<Prenotazione> {
@@ -33,9 +33,18 @@ public class Prenotazione implements Comparable<Prenotazione> {
      */
     public Prenotazione(Aula aula, TimeSlot timeSlot, String docente,
             String motivo) {
-        // Controllo se i parametri passati sono null
-        if(aula == null || timeSlot == null || docente == null || motivo == null) throw new NullPointerException("Uno degli oggetti passati non esiste");
-
+        if (aula == null)
+            throw new NullPointerException(
+                    "Tentativo di costruire una prenotazione senza aula");
+        if (timeSlot == null)
+            throw new NullPointerException(
+                    "Tentativo di costruire una prenotazione senza time slot");
+        if (docente == null)
+            throw new NullPointerException(
+                    "Tentativo di costruire una prenotazione senza docente");
+        if (motivo == null)
+            throw new NullPointerException(
+                    "Tentativo di costruire una prenotazione senza motivo");
         this.aula = aula;
         this.timeSlot = timeSlot;
         this.docente = docente;
@@ -74,8 +83,6 @@ public class Prenotazione implements Comparable<Prenotazione> {
      * @param docente the docente to set
      */
     public void setDocente(String docente) {
-        if(docente == null) throw new NullPointerException("oggetto passato non esiste");
-
         this.docente = docente;
     }
 
@@ -83,30 +90,16 @@ public class Prenotazione implements Comparable<Prenotazione> {
      * @param motivo the motivo to set
      */
     public void setMotivo(String motivo) {
-        if(motivo == null) throw new NullPointerException("oggetto passato non esiste");
-
         this.motivo = motivo;
     }
-    
-    /*
-     * L'hashcode di una prenotazione si calcola a partire dai due campi usati
-     * per equals.
-     */
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        long temp;
-
-        // si usa il valore intero corrispondente alla rappresentazione del
-        // double bit a bit (64 bit, cio� un long)
-        temp = Double.doubleToLongBits(this.aula.hashCode());
-        // si fa il bitwise XOR tra i 64 bit originali e il loro shift a destra
-        // di 32 bit, poi si fa il cast a int
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(this.timeSlot.hashCode());
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-
+        result = prime * result + ((aula == null) ? 0 : aula.hashCode());
+        result = prime * result
+                + ((timeSlot == null) ? 0 : timeSlot.hashCode());
         return result;
     }
 
@@ -116,14 +109,22 @@ public class Prenotazione implements Comparable<Prenotazione> {
      */
     @Override
     public boolean equals(Object obj) {
-        if(obj == this) return true; 
-        if(obj == null) return false; // Se è null
-        if(!(obj instanceof Prenotazione)) return false; // Se non è un Prenotazione
-
-        Prenotazione a = (Prenotazione) obj; // Cast
-
-        if(this.aula.equals(a.getAula()) && this.timeSlot.equals(a.timeSlot)) return true; // Se l'aula  e il timeslot sono equal
-        else return false;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Prenotazione))
+            return false;
+        Prenotazione other = (Prenotazione) obj;
+        if (aula == null) {
+            if (other.aula != null)
+                return false;
+        } else if (!aula.equals(other.aula))
+            return false;
+        if (timeSlot == null) {
+            if (other.timeSlot != null)
+                return false;
+        } else if (!timeSlot.equals(other.timeSlot))
+            return false;
+        return true;
     }
 
     /*
@@ -133,10 +134,11 @@ public class Prenotazione implements Comparable<Prenotazione> {
      */
     @Override
     public int compareTo(Prenotazione o) {
-        if(this.timeSlot.compareTo(o.getTimeSlot()) < 0) return -1;
-        // Se il timeslot è uguale conta l'ordine delle aule
-        else if(this.timeSlot.compareTo(o.getTimeSlot()) == 0) return this.aula.compareTo(o.getAula()); 
-        else return 1;
+        int cmp = this.timeSlot.compareTo(o.timeSlot);
+        if (cmp != 0)
+            return cmp;
+        // se hanno lo stesso time slot vale l'ordine tra aule
+        return this.aula.compareTo(o.aula);
     }
 
     @Override

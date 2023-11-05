@@ -41,9 +41,10 @@ public class TimeSlot implements Comparable<TimeSlot> {
      *                                      stop
      */
     public TimeSlot(GregorianCalendar start, GregorianCalendar stop) {
+        // Controllo se i parametri passati sono null
         if(start == null || stop == null) throw new NullPointerException("Uno degli oggetti passati non esiste");
 
-        if(start.compareTo(stop) == 0 || start.compareTo(stop) > 0) throw new IllegalArgumentException("Ora Start deve essere minore di ora stop");
+        if(start.compareTo(stop) >= 0) throw new IllegalArgumentException("Ora Start deve essere minore di ora stop");
 
         this.start = start;
         this.stop = stop;
@@ -70,13 +71,13 @@ public class TimeSlot implements Comparable<TimeSlot> {
      */
     @Override
     public boolean equals(Object obj) {
-        if(obj == this) return true;
+        if(obj == this) return true; // Se è null
         if(obj == null) return false;
-        if(!(obj instanceof TimeSlot)) return false;
+        if(!(obj instanceof TimeSlot)) return false; // Se non è un Aula
 
-        TimeSlot a = (TimeSlot) obj;
+        TimeSlot a = (TimeSlot) obj; // Cast Obj -> Timeslot
 
-        if(this.start.equals(a.getStart()) && this.stop.equals(a.getStop())) return true;
+        if(this.start.equals(a.getStart()) && this.stop.equals(a.getStop())) return true; // Se inizio e fine coincidono
         else return false;
     }
 
@@ -113,14 +114,15 @@ public class TimeSlot implements Comparable<TimeSlot> {
         GregorianCalendar a = o.getStart();
         GregorianCalendar s = o.getStop();
 
-        if(this.start.compareTo(a) < 0) return -1;
-        else if(this.start.compareTo(a) == 0) {
+        if(this.start.compareTo(a) < 0) return -1; // Se inizia prima this
+        else if(this.start.compareTo(a) == 0) { // Se iniziano insieme
 
-            if(this.stop.compareTo(s) < 0) return -1;
+            return this.stop.compareTo(s); // Altrimenti confronto e ritorno il valore in cui finiscono
+            /*if(this.stop.compareTo(s) < 0) return -1;
             else if(this.stop.compareTo(s) == 0) return 0;
-            else return 1;
+            else return 1;*/
         }
-        else return 1;
+        else return 1; // Altrimenti se inizia prima il timeslot passato
     }
 
     /**

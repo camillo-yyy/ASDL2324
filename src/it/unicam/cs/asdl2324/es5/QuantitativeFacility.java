@@ -1,14 +1,14 @@
 /**
  * 
  */
-package it.unicam.cs.asdl2324.es4;
+package it.unicam.cs.asdl2324.es5;
 
 /**
  * Una Quantitative Facility è una facility che contiene una informazione
  * quantitativa. Ad esempio la presenza di 50 posti a sedere oppure la presenza
  * di 20 thin clients.
  * 
- * @author Template: Luca Tesei, Implementation: Collective
+ * @author Luca Tesei
  *
  */
 public class QuantitativeFacility extends Facility {
@@ -50,13 +50,19 @@ public class QuantitativeFacility extends Facility {
      */
     @Override
     public boolean satisfies(Facility o) {
-        if(o == null) throw new NullPointerException("Puntatore nullo"); // Se la facilty non esiste
-        if(!(o instanceof QuantitativeFacility)) return false; // Se la facilty non è una istanza di QuantitiveFacility
-
-        QuantitativeFacility a = (QuantitativeFacility) o;
-
-        if(this.equals(o) && this.quantity >= a.getQuantity()) return true; // Se il codice è uguale e la quantità maggiore uguale
-        else return false;
+        if (o == null)
+            throw new NullPointerException(
+                    "Tentativo di controllare la soddisfacibilità di una facility nulla");
+        if (o instanceof QuantitativeFacility) {
+            // Controllo se la facility ha lo stesso codice e la quantità
+            // soddisfa la richiesta
+            QuantitativeFacility oo = (QuantitativeFacility) o;
+            return this.getCodice().equals(oo.getCodice())
+                    && this.quantity >= oo.quantity;
+        } else
+            // la facility non è una presence facility quindi non può essere
+            // soddisfatta
+            return false;
     }
 
 }

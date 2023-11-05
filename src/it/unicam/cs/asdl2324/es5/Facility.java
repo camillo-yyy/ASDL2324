@@ -1,11 +1,11 @@
-package it.unicam.cs.asdl2324.es4;
+package it.unicam.cs.asdl2324.es5;
 
 /**
  * Una facility generica è una caratteristica o delle dotazioni che una certa
  * aula può avere. La classe va specificata ulteriormente per definire i diversi
  * tipi di facilities.
  * 
- * @author Template: Luca Tesei, Implementation: Collective
+ * @author Luca Tesei
  *
  */
 public abstract class Facility {
@@ -26,9 +26,9 @@ public abstract class Facility {
      *                                  richieste è nulla.
      */
     public Facility(String codice, String descrizione) {
-        // Controllo se i parametri passati sono null
-        if(codice == null || descrizione == null) throw new NullPointerException("Oggetti non esistenti");
-
+        if (codice == null || descrizione == null)
+            throw new NullPointerException(
+                    "Tentativo di costruire una facility con almeno una informazione nulla");
         this.codice = codice;
         this.descrizione = descrizione;
     }
@@ -55,15 +55,7 @@ public abstract class Facility {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        long temp;
-
-        // si usa il valore intero corrispondente alla rappresentazione del
-        // double bit a bit (64 bit, cio� un long)
-        temp = Double.doubleToLongBits(this.codice.hashCode());
-        // si fa il bitwise XOR tra i 64 bit originali e il loro shift a destra
-        // di 32 bit, poi si fa il cast a int
-        result = prime * result + (int) (temp ^ (temp >>> 32));
-
+        result = prime * result + ((codice == null) ? 0 : codice.hashCode());
         return result;
     }
 
@@ -72,13 +64,17 @@ public abstract class Facility {
      */
     @Override
     public boolean equals(Object obj) {
-        if(obj == null) return false; // Se è null
-        if(!(obj instanceof Facility)) return false; // Se non è un Aula
-
-        Facility a = (Facility) obj; // Cast Obj -> Facility
-
-        if(this.codice.equals(a.getCodice())) return true; // Se hanno lo stesso codice
-        else return false;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Facility))
+            return false;
+        Facility other = (Facility) obj;
+        if (codice == null) {
+            if (other.codice != null)
+                return false;
+        } else if (!codice.equals(other.codice))
+            return false;
+        return true;
     }
 
     @Override
