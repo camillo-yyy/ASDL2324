@@ -473,8 +473,13 @@ public class SingleLinkedList<E> implements List<E> {
         E ret;
 
         if(index == 0) {
+
             ret = this.head.item;  // Salvo l'elemento da rimuovere
-            this.head = this.head.next; // La testa diventa il successivo della testa
+            if(this.head.next == null) { // Se è anche la coda rimuovo tutto
+                this.head = null;
+                this.tail = null;
+            }
+            else this.head = this.head.next; // La testa diventa il successivo della testa
 
             // Diminuisco dimensioni e aumento il n. mod
             --this.size;
@@ -492,10 +497,16 @@ public class SingleLinkedList<E> implements List<E> {
                 temp = temp.next;
                 ++i;
             }
+
              // Salvo l'elemento da rimuovere (cioè l'elemento contenuto nel nodo successivo)
             ret = temp.next.item;
-            // Aggancio al precedente il successivo del nodo che verrà rimosso
-            temp.next = temp.next.next; 
+
+            if(index == this.size - 1) {
+                this.tail = temp;    // Il nuovo nodo diventa la nuova coda
+            }            
+            temp.next = temp.next.next;            // Aggancio al precedente il successivo del nodo che verrà rimosso
+
+
 
             // Diminuisco dimensioni e aumento il n. mod
             --this.size;
