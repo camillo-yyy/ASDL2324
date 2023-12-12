@@ -41,7 +41,7 @@ public class TimeSlot implements Comparable<TimeSlot> {
      *                                      stop
      */
     public TimeSlot(GregorianCalendar start, GregorianCalendar stop) {
-        // TODO implementare
+
         if(start == null || stop == null) throw new NullPointerException("Uno degli oggetti passati non esiste");
 
         if(start.compareTo(stop) == 0 || start.compareTo(stop) > 0) throw new IllegalArgumentException("Ora Start deve essere minore di ora stop");

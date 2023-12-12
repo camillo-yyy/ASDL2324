@@ -226,7 +226,4 @@ public class TimeSlot implements Comparable<TimeSlot> {
     }
 
 
-    // TODO aggiungere eventuali metodi privati a scopo di implementazione -
-    // riutilizzare il codice della ES 3 o migliorarlo
-
 }

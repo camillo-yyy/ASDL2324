@@ -7,8 +7,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.Iterator;
 
-// TODO importare eventuali classi o interfacce che servono
-
 /**
  * Un oggetto della classe aula rappresenta una certa aula con le sue facilities
  * e le sue prenotazioni.
@@ -173,7 +171,7 @@ public class Aula implements Comparable<Aula> {
      *                                  se il time slot passato è nullo
      */
     public boolean isFree(TimeSlot ts) {
-        // TODO implementare
+
         /*
          * NOTA: sfruttare l'ordinamento tra le prenotazioni per rispondere in
          * maniera efficiente: poiché le prenotazioni sono in ordine crescente

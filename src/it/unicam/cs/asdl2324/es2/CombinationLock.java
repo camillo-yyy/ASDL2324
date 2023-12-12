@@ -10,7 +10,6 @@ package it.unicam.cs.asdl2324.es2;
  */
 public class CombinationLock {
 
-    // TODO inserire le variabili istanza che servono
     // Attributi
     private String password;  // Stringa per memorizzazione password           
     private String lastDigits; // Stringa per memorizzazione ultimi 3 tentativi
