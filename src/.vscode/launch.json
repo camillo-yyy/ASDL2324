@@ -8,6 +8,13 @@
    "type": "java",
    "name": "Main",
    "request": "launch",
+   "mainClass": "it.unicam.cs.asdl2324.mp2.Main",
+   "projectName": "src_77f0ec6f"
+  },
+  {
+   "type": "java",
+   "name": "Main",
+   "request": "launch",
    "mainClass": "it.unicam.cs.asdl2324.mp1.Main",
    "projectName": "src_77f0ec6f"
   },

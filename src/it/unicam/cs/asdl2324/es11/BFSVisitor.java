@@ -52,10 +52,11 @@ public class BFSVisitor<L> {
         //aggiungo alla coda, 
         //diventa grigio, distanza da se stesso 0, 
         //radice dell'albero di copertura
-        queue.addLast(source);
-        source.setColor(1);
-        source.setIntegerDistance(0);
-        source.setPrevious(null);
+        GraphNode<L> realSource = g.getNodeOf(source.getLabel());
+        queue.addLast(realSource);
+        realSource.setColor(1);
+        realSource.setIntegerDistance(0);
+        realSource.setPrevious(null);
 
         while(!queue.isEmpty()) {
 
