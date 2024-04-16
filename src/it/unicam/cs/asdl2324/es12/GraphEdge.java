@@ -7,7 +7,7 @@ package it.unicam.cs.asdl2324.es12;
  * Questa classe raggruppa le caratteristiche di un arco, possibilmente pesato
  * ed etichettato, facente parte di un grafo. I nodi del grafo sono etichettati
  * con oggetti della classe {@code L}. Le classi {@code GraphNode<L>} e
- * {@code Graph<L>} definiscono le operazioni generiche sui nodi e sul grafo,
+* {@code Graph<L>} definiscono le operazioni generiche sui nodi e sul grafo,
  * rispettivamente.
  * 
  * Un arco può essere orientato o non orientato, tale informazione è immutabile
@@ -155,6 +155,10 @@ public class GraphEdge<L> {
         this.weight = weight;
     }
 
+    
+    /** 
+     * @return int
+     */
     /*
      * Basato sul flag che definisce se l'arco è orientato o no e sugli hashCode
      * dei due nodi collegati.

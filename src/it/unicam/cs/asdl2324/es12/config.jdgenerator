@@ -1,0 +1,179 @@
+==== CONFIGS ====		
+{
+    "base_path": "e:\\Informatica\\UniCAM\\Anno II\\Algoritmi e Strutture Dati\\ASDL2324\\src\\it\\unicam\\cs\\asdl2324\\es12",
+    "out": "e:\\Informatica\\UniCAM\\Anno II\\Algoritmi e Strutture Dati\\ASDL2324\\src\\it\\unicam\\cs\\asdl2324\\es12\\javadoc",
+    "javadoc_executable": "C:\\Program Files (x86)\\Java\\jdk-1.21\\bin\\javadoc.exe",
+    "exclude": [],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"C:\Program Files (x86)\Java\jdk-1.21\bin\javadoc.exe" 
+	-sourcepath "e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12" 
+	-d "e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\javadoc" 
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\ASDL2324-CAMILLETTI-SAMUELE-ES12\PrimMST.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\Graph.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\GraphEdge.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\GraphNode.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraph.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMST.java"
+	"e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java"
+
+
+==== JAVADOC OUTPUT ====
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\ASDL2324-CAMILLETTI-SAMUELE-ES12\PrimMST.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\Graph.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\GraphEdge.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\GraphNode.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraph.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMST.java...
+Loading source file e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java...
+Constructing Javadoc information...
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:3: error: package org.junit does not exist
+import static org.junit.Assert.assertEquals;
+                       ^
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:3: error: static import only from classes and interfaces
+import static org.junit.Assert.assertEquals;
+^
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:4: error: package org.junit.jupiter.api does not exist
+import static org.junit.jupiter.api.Assertions.*;
+                                   ^
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:9: error: package org.junit.jupiter.api does not exist
+import org.junit.jupiter.api.Test;
+                            ^
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:3: error: package org.junit.jupiter.api does not exist
+import static org.junit.jupiter.api.Assertions.*;
+                                   ^
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:5: error: package org.junit.jupiter.api does not exist
+import org.junit.jupiter.api.Test;
+                            ^
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:13: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:23: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:44: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:60: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:66: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:88: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:103: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:114: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:131: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:160: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:199: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:219: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:238: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:289: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:295: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:321: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\MapAdjacentListUndirectedGraphTest.java:332: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class MapAdjacentListUndirectedGraphTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:15: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:88: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:136: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:160: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:184: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:208: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:232: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+e:\Informatica\UniCAM\Anno II\Algoritmi e Strutture Dati\ASDL2324\src\it\unicam\cs\asdl2324\es12\PrimMSTTest.java:272: error: cannot find symbol
+    @Test
+     ^
+  symbol:   class Test
+  location: class PrimMSTTest
+31 errors
+
+
